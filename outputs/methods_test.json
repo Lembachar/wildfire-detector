@@ -37,7 +37,64 @@
   "false_alarms_per_1000_km2_city": 5.213894821142552,
   "false_alarms_per_1000_km2_cloud": 3.3148761031907665
  },
- "Schroeder 2016": {
+ "Schroeder 2016 TOA": {
+  "precision": 0.9243353783231084,
+  "recall": 0.5319733228717144,
+  "f1": 0.6752988047808766,
+  "tp": 1356,
+  "fp": 111,
+  "fn": 1193,
+  "ap": null,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.08757637474541752,
+   "small (5-24 px, 0.2-1 ha)": 0.4684287812041116,
+   "large (25+ px, > 1 ha)": 0.7218591140159768
+  },
+  "false_alarms_per_1000_km2": 3.137346835828298,
+  "false_alarms_per_1000_km2_city": 28.024684663641214,
+  "false_alarms_per_1000_km2_cloud": 0.0
+ },
+ "Kumar-Roy 2018 TOA": {
+  "precision": 0.8183288409703504,
+  "recall": 0.5955276579050608,
+  "f1": 0.6893732970027248,
+  "tp": 1518,
+  "fp": 337,
+  "fn": 1031,
+  "ap": null,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.23014256619144602,
+   "small (5-24 px, 0.2-1 ha)": 0.5712187958883994,
+   "large (25+ px, > 1 ha)": 0.7378358750907771
+  },
+  "false_alarms_per_1000_km2": 14.530869555415276,
+  "false_alarms_per_1000_km2_city": 151.20294981313398,
+  "false_alarms_per_1000_km2_cloud": 1.6574380515953833
+ },
+ "Murphy 2016 TOA": {
+  "precision": 0.8797939324556382,
+  "recall": 0.6029815613966262,
+  "f1": 0.7155493482309124,
+  "tp": 1537,
+  "fp": 210,
+  "fn": 1012,
+  "ap": null,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.23014256619144602,
+   "small (5-24 px, 0.2-1 ha)": 0.5844346549192364,
+   "large (25+ px, > 1 ha)": 0.7450980392156863
+  },
+  "false_alarms_per_1000_km2": 7.430558295382811,
+  "false_alarms_per_1000_km2_city": 75.60147490656699,
+  "false_alarms_per_1000_km2_cloud": 0.0
+ },
+ "Schroeder 2016 (on surface reflectance)": {
   "precision": 0.882177033492823,
   "recall": 0.5786582973715182,
   "f1": 0.6988865197820421,
@@ -56,7 +113,7 @@
   "false_alarms_per_1000_km2_city": 71.69105379071009,
   "false_alarms_per_1000_km2_cloud": 0.0
  },
- "Kumar-Roy 2018": {
+ "Kumar-Roy 2018 (on surface reflectance)": {
   "precision": 0.7358405074762121,
   "recall": 0.6371125931737937,
   "f1": 0.6829268292682927,
@@ -75,7 +132,7 @@
   "false_alarms_per_1000_km2_city": 281.5503203416978,
   "false_alarms_per_1000_km2_cloud": 1.6574380515953833
  },
- "Murphy 2016": {
+ "Murphy 2016 (on surface reflectance)": {
   "precision": 0.803632793323515,
   "recall": 0.6422126324048647,
   "f1": 0.7139119058002618,
@@ -113,25 +170,6 @@
   "false_alarms_per_1000_km2_city": 1233.0861252002135,
   "false_alarms_per_1000_km2_cloud": 94.47396894093684
  },
- "[Hu biomes only] Hu 2021 (AFD-S2)": {
-  "precision": 0.08381927894123016,
-  "recall": 0.9632867132867133,
-  "f1": 0.15421934039277885,
-  "tp": 1653,
-  "fp": 18068,
-  "fn": 63,
-  "ap": null,
-  "tiles": 45453,
-  "fire_tiles": 1716,
-  "by_size": {
-   "tiny (1-4 fire px, < 0.2 ha)": 0.9259259259259259,
-   "small (5-24 px, 0.2-1 ha)": 0.9643605870020965,
-   "large (25+ px, > 1 ha)": 0.9790940766550522
-  },
-  "false_alarms_per_1000_km2": 1031.2844969911296,
-  "false_alarms_per_1000_km2_city": 901.6224520383694,
-  "false_alarms_per_1000_km2_cloud": 409.5262096774194
- },
  "[Hu biomes only] ours: before+now (live)": {
   "precision": 0.823694553621561,
   "recall": 0.8548951048951049,
@@ -151,61 +189,99 @@
   "false_alarms_per_1000_km2_city": 5.854691247002398,
   "false_alarms_per_1000_km2_cloud": 7.875504032258064
  },
- "[Hu biomes only] Schroeder 2016": {
-  "precision": 0.9403846153846154,
-  "recall": 0.5699300699300699,
-  "f1": 0.7097242380261248,
-  "tp": 978,
-  "fp": 62,
-  "fn": 738,
+ "[Hu biomes only] Hu 2021 (AFD-S2) TOA": {
+  "precision": 0.2224132004125129,
+  "recall": 0.754079254079254,
+  "f1": 0.3435094239447836,
+  "tp": 1294,
+  "fp": 4524,
+  "fn": 422,
   "ap": null,
   "tiles": 45453,
   "fire_tiles": 1716,
   "by_size": {
-   "tiny (1-4 fire px, < 0.2 ha)": 0.16137566137566137,
-   "small (5-24 px, 0.2-1 ha)": 0.549266247379455,
-   "large (25+ px, > 1 ha)": 0.7607433217189314
+   "tiny (1-4 fire px, < 0.2 ha)": 0.4603174603174603,
+   "small (5-24 px, 0.2-1 ha)": 0.7672955974842768,
+   "large (25+ px, > 1 ha)": 0.875725900116144
   },
-  "false_alarms_per_1000_km2": 1.3356135946231096,
+  "false_alarms_per_1000_km2": 294.2165947012622,
+  "false_alarms_per_1000_km2_city": 403.9736960431655,
+  "false_alarms_per_1000_km2_cloud": 0.0
+ },
+ "[Hu biomes only] Hu 2021 (AFD-S2) (on surface reflectance)": {
+  "precision": 0.08381927894123016,
+  "recall": 0.9632867132867133,
+  "f1": 0.15421934039277885,
+  "tp": 1653,
+  "fp": 18068,
+  "fn": 63,
+  "ap": null,
+  "tiles": 45453,
+  "fire_tiles": 1716,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.9259259259259259,
+   "small (5-24 px, 0.2-1 ha)": 0.9643605870020965,
+   "large (25+ px, > 1 ha)": 0.9790940766550522
+  },
+  "false_alarms_per_1000_km2": 1031.2844969911296,
+  "false_alarms_per_1000_km2_city": 901.6224520383694,
+  "false_alarms_per_1000_km2_cloud": 409.5262096774194
+ },
+ "[Hu biomes only] Schroeder 2016 TOA": {
+  "precision": 0.9555084745762712,
+  "recall": 0.5256410256410257,
+  "f1": 0.6781954887218046,
+  "tp": 902,
+  "fp": 42,
+  "fn": 814,
+  "ap": null,
+  "tiles": 45453,
+  "fire_tiles": 1716,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.07936507936507936,
+   "small (5-24 px, 0.2-1 ha)": 0.4779874213836478,
+   "large (25+ px, > 1 ha)": 0.7479674796747967
+  },
+  "false_alarms_per_1000_km2": 0.47700485522253916,
   "false_alarms_per_1000_km2_city": 11.709382494004796,
   "false_alarms_per_1000_km2_cloud": 0.0
  },
- "[Hu biomes only] Kumar-Roy 2018": {
-  "precision": 0.9033579033579033,
-  "recall": 0.6427738927738927,
-  "f1": 0.7511065713312906,
-  "tp": 1103,
-  "fp": 118,
-  "fn": 613,
+ "[Hu biomes only] Kumar-Roy 2018 TOA": {
+  "precision": 0.9288969917958068,
+  "recall": 0.5938228438228438,
+  "f1": 0.724493423391397,
+  "tp": 1019,
+  "fp": 78,
+  "fn": 697,
   "ap": null,
   "tiles": 45453,
   "fire_tiles": 1716,
   "by_size": {
-   "tiny (1-4 fire px, < 0.2 ha)": 0.35714285714285715,
-   "small (5-24 px, 0.2-1 ha)": 0.6184486373165619,
-   "large (25+ px, > 1 ha)": 0.7816492450638792
+   "tiny (1-4 fire px, < 0.2 ha)": 0.2328042328042328,
+   "small (5-24 px, 0.2-1 ha)": 0.5723270440251572,
+   "large (25+ px, > 1 ha)": 0.7642276422764228
   },
-  "false_alarms_per_1000_km2": 3.4344349576022823,
-  "false_alarms_per_1000_km2_city": 58.546912470023976,
+  "false_alarms_per_1000_km2": 2.0034203919346645,
+  "false_alarms_per_1000_km2_city": 29.273456235011988,
   "false_alarms_per_1000_km2_cloud": 0.0
  },
- "[Hu biomes only] Murphy 2016": {
-  "precision": 0.8978583196046128,
-  "recall": 0.6351981351981352,
-  "f1": 0.7440273037542662,
-  "tp": 1090,
-  "fp": 124,
-  "fn": 626,
+ "[Hu biomes only] Murphy 2016 TOA": {
+  "precision": 0.9380776340110906,
+  "recall": 0.5914918414918415,
+  "f1": 0.725518227305218,
+  "tp": 1015,
+  "fp": 67,
+  "fn": 701,
   "ap": null,
   "tiles": 45453,
   "fire_tiles": 1716,
   "by_size": {
-   "tiny (1-4 fire px, < 0.2 ha)": 0.31746031746031744,
-   "small (5-24 px, 0.2-1 ha)": 0.610062893081761,
-   "large (25+ px, > 1 ha)": 0.7886178861788617
+   "tiny (1-4 fire px, < 0.2 ha)": 0.21164021164021163,
+   "small (5-24 px, 0.2-1 ha)": 0.5660377358490566,
+   "large (25+ px, > 1 ha)": 0.7723577235772358
   },
-  "false_alarms_per_1000_km2": 1.5264155367121255,
-  "false_alarms_per_1000_km2_city": 17.564073741007192,
+  "false_alarms_per_1000_km2": 0.9540097104450783,
+  "false_alarms_per_1000_km2_city": 11.709382494004796,
   "false_alarms_per_1000_km2_cloud": 0.0
  }
 }

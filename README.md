@@ -15,6 +15,8 @@ VIIRS/MODIS day-and-night heat detections from the last 48 hours are shown along
 
 Measured on **72,592 test tiles (640 m each) from 302 photos at places never used in training**: forest, savanna,
 peat, volcanoes, oil and gas sites, 16 cities and cloudy scenes, on six continents.
+The table below uses the automatic labels (hot pixels in the image + a same-day NASA detection within 2 km).
+On blind hand labels the picture is different: see [Comparison with published methods](#comparison-with-published-methods).
 
 | | photo only | **before + now (live)** |
 |---|---|---|
@@ -28,6 +30,55 @@ peat, volcanoes, oil and gas sites, 16 cities and cloudy scenes, on six continen
 
 For comparison, a no-learning rule ("any hot pixel") gets 47% precision and 160 false alarms per 1,000 km² on an
 earlier, easier version of the same test.
+
+## Comparison with published methods
+
+Four published active-fire methods were re-implemented and run on the same 302 test photos:
+Schroeder et al. 2016, Kumar & Roy 2018 and Murphy et al. 2016 (made for Landsat-8; adapted to Sentinel-2 bands
+and 20 m pixels, see `src/rule_methods.py`), and Hu et al. 2021 (made for Sentinel-2, only for six biomes).
+Each was run on top-of-atmosphere reflectance (Sentinel-2 L1C, the input they were designed for) and on the
+surface reflectance our models use. A tile counts as flagged if any pixel in it is flagged.
+
+**1. Automatic labels** (all 72,592 test tiles)
+
+| | Alarms that are real fires | Fires caught | F1 | False alarms per 1,000 km² |
+|---|---|---|---|---|
+| **Ours: before + now** | 84.2% | **86.0%** | **0.851** | 7.3 |
+| Schroeder 2016 | **92.4%** | 53.2% | 0.675 | **3.1** |
+| Murphy 2016 | 88.0% | 60.3% | 0.716 | 7.4 |
+| Kumar-Roy 2018 | 81.8% | 59.6% | 0.689 | 14.5 |
+| Hu 2021 (its six biomes only) | 22.2% | 75.4% | 0.344 | 294.2 |
+
+**2. Blind hand labels** (650 tiles labelled by eye, without knowing which method flagged them)
+
+The tiles were drawn at random from fixed groups: flagged by every method, by some, by none but with a hot pixel,
+and flagged only by the top-of-atmosphere versions. Tiles that no method flags and that have no hot pixel are
+counted as no fire. Each group is weighted up to its full size, so the numbers stand for the whole test set.
+Fire means flame or glow visible inside the tile at the time of the photo. 95% intervals by bootstrap.
+
+| | Alarms that are real fires | Fires caught | F1 | False alarms per 1,000 km² |
+|---|---|---|---|---|
+| Ours: before + now | 57.5% (53–61) | **96.5% (94–99)** | 0.720 | 37.8 |
+| Ours: photo only | 57.1% (53–61) | 96.9% (95–99) | 0.719 | 38.5 |
+| **Schroeder 2016** | **92.4% (88–96)** | 86.0% (81–91) | **0.891** | **3.7** |
+| **Murphy 2016** | 85.0% (80–90) | 93.5% (90–96) | **0.890** | 8.7 |
+| Kumar-Roy 2018 | 77.0% (72–82) | 91.4% (88–95) | 0.836 | 14.5 |
+| Hu 2021 (its six biomes only) | 17.1% (16–18) | 97.5% (95–99) | 0.291 | 262.2 |
+
+Published methods on top-of-atmosphere input. On surface reflectance: Schroeder F1 0.891, Murphy 0.852,
+Kumar-Roy 0.790. Full results: `outputs/methods_test.json` and `outputs/methods_handlabels.json`.
+
+**What it means**
+
+- On fire a person can see, **Schroeder 2016 and Murphy 2016 are better than our models.** Ours catch slightly more
+  fires (96.5% vs 86–94%) but raise 4 to 10 times more false alarms.
+- Most of our extra alarms are tiles with only 1–3 faint hot pixels, often next to burnt ground, where a person
+  sees no fire. The automatic labels count such faint pixels as fire, and the models learned that definition.
+  That is why the two scorings rank the methods in opposite order.
+- The automatic labels favour our models; the hand labels are the fairer test. The fix is to train on labels that
+  match what a person sees: a separate set of hand-labelled tiles (never these 650), then test again.
+- Limits of this test: one labeller; Landsat methods adapted to Sentinel-2; Hu et al. only in its six biomes;
+  fires that no method and no hot pixel finds are not counted.
 
 ## How it works
 
@@ -71,8 +122,10 @@ earlier, easier version of the same test.
 
 - Sentinel-2 photographs each place about every 2–5 days, in daylight only, and can't see through cloud.
 - Tiny fires (under 0.2 ha, 1–4 pixels) are caught only 56–59% of the time.
-- 7.3 false alarms per 1,000 km² is fine for checking a place, but too many to alert on unconfirmed at world
-  scale. A global alert system would need a second confirmation, such as a NASA detection or the next photo.
+- On blind hand labels the models raise 37.8 false alarms per 1,000 km², mostly on faint 1–3 pixel heat that a
+  person doesn't see as fire (see the comparison above). That is too many to alert on unconfirmed at world
+  scale. A global alert system would need a second confirmation, such as a NASA detection or the next photo, and
+  the models need retraining on labels that match what a person sees.
 - The test set has only 7 cloud-edge photos, so the cloud-edge numbers are rough.
 
 ## Run it

@@ -15,9 +15,10 @@ Adaptations to Sentinel-2 (the same for every method, written down so they can b
   2. Windows: the contextual windows were defined in 30 m pixels; they are scaled to the same size on the
      ground in 20 m pixels (Schroeder 61x61 -> 91x91; Kumar-Roy growing window 5..61 -> 7..91). The 3x3
      neighbourhoods (adjacent pixels) stay 3x3.
-  3. Input: Sentinel-2 L2A surface reflectance, the same input our models get. The original methods use
-     top-of-atmosphere reflectance (Landsat-8 TOA / Sentinel-2 L1C). L1C isn't freely downloadable on the
-     archive we use, so this difference remains and is reported as a limitation.
+  3. Input: each method is run twice: on Sentinel-2 L1C top-of-atmosphere reflectance, the input it was
+     designed for (src/fetch_l1c.py; there the real B01 replaces the B2 substitute, and Schroeder gets
+     reflectance without the sun-angle correction, i.e. times cos(sun zenith), as in the reference code), and on L2A surface
+     reflectance, the same input our models get.
   4. Saturation (Murphy Eq 3): Landsat's BQA saturation bits -> Sentinel-2 scene classification class 1
      (saturated or defective).
   5. Murphy Eq 3 in the reference code divides by eps where B5 > 0 (an inverted np.where); the paper's
