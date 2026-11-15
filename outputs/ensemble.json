@@ -1,0 +1,8 @@
+{
+ "weights": {
+  "tile": 0.1,
+  "unet": 0.2,
+  "pretrained": 0.7
+ },
+ "threshold": 0.7959304280206769
+}

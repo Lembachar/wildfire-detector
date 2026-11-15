@@ -1,0 +1,170 @@
+{
+ "before tile": {
+  "precision": 0.7036190476190476,
+  "recall": 0.7245978815221655,
+  "f1": 0.7139543873212214,
+  "tp": 1847,
+  "fp": 778,
+  "fn": 702,
+  "ap": 0.835702463759304,
+  "threshold": 0.9280183911323547,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.49287169042769857,
+   "small (5-24 px, 0.2-1 ha)": 0.7444933920704846,
+   "large (25+ px, > 1 ha)": 0.7973856209150327
+  },
+  "false_alarms_per_1000_km2": 32.419250636892414,
+  "burned_ground_flagged": 0.0012893867354339592,
+  "false_alarms_per_1000_km2_city": 338.90316337426583,
+  "false_alarms_per_1000_km2_cloud": 0.0
+ },
+ "before unet": {
+  "precision": 0.8667413213885778,
+  "recall": 0.6072969792075323,
+  "f1": 0.7141868512110726,
+  "tp": 1548,
+  "fp": 238,
+  "fn": 1001,
+  "ap": 0.8019856837121658,
+  "threshold": 0.9822195768356323,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.20570264765784113,
+   "small (5-24 px, 0.2-1 ha)": 0.5991189427312775,
+   "large (25+ px, > 1 ha)": 0.7545388525780683
+  },
+  "false_alarms_per_1000_km2": 9.467081680043286,
+  "burned_ground_flagged": 0.0,
+  "false_alarms_per_1000_km2_city": 99.7157384543513,
+  "false_alarms_per_1000_km2_cloud": 0.0
+ },
+ "before pretrained": {
+  "precision": 0.7548682703321878,
+  "recall": 0.7755982738328756,
+  "f1": 0.765092879256966,
+  "tp": 1977,
+  "fp": 642,
+  "fn": 572,
+  "ap": 0.8806066342298309,
+  "threshold": 0.9079370205128839,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.5132382892057027,
+   "small (5-24 px, 0.2-1 ha)": 0.801762114537445,
+   "large (25+ px, > 1 ha)": 0.8562091503267973
+  },
+  "false_alarms_per_1000_km2": 20.53035736427992,
+  "burned_ground_flagged": 0.004029333548231122,
+  "false_alarms_per_1000_km2_city": 155.7651077816337,
+  "false_alarms_per_1000_km2_cloud": 0.0
+ },
+ "after tile": {
+  "precision": 0.7853602744948532,
+  "recall": 0.8081600627697136,
+  "f1": 0.7965970610982213,
+  "tp": 2060,
+  "fp": 563,
+  "fn": 489,
+  "ap": 0.9024618618750796,
+  "threshold": 0.8468598469793195,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.5906313645621182,
+   "small (5-24 px, 0.2-1 ha)": 0.8399412628487518,
+   "large (25+ px, > 1 ha)": 0.8700072621641249
+  },
+  "false_alarms_per_1000_km2": 13.264922586572279,
+  "burned_ground_flagged": 0.0027399468127971634,
+  "false_alarms_per_1000_km2_city": 9.124315936999466,
+  "false_alarms_per_1000_km2_cloud": 6.629752206381533
+ },
+ "after unet": {
+  "precision": 0.7736862293824319,
+  "recall": 0.791290702236171,
+  "f1": 0.7823894491854151,
+  "tp": 2017,
+  "fp": 590,
+  "fn": 532,
+  "ap": 0.8777210780782112,
+  "threshold": 0.7411434370092884,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.4419551934826884,
+   "small (5-24 px, 0.2-1 ha)": 0.7709251101321586,
+   "large (25+ px, > 1 ha)": 0.9259259259259259
+  },
+  "false_alarms_per_1000_km2": 22.126551368473265,
+  "burned_ground_flagged": 0.0005238133612700459,
+  "false_alarms_per_1000_km2_city": 140.12342331820608,
+  "false_alarms_per_1000_km2_cloud": 8.287190257976917
+ },
+ "after pretrained": {
+  "precision": 0.8133535660091047,
+  "recall": 0.841114162416634,
+  "f1": 0.8270009643201542,
+  "tp": 2144,
+  "fp": 492,
+  "fn": 405,
+  "ap": 0.9138988916607155,
+  "threshold": 0.8713654279708862,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.604887983706721,
+   "small (5-24 px, 0.2-1 ha)": 0.8575624082232012,
+   "large (25+ px, > 1 ha)": 0.9172113289760349
+  },
+  "false_alarms_per_1000_km2": 7.3204759502660295,
+  "burned_ground_flagged": 0.005359013619147393,
+  "false_alarms_per_1000_km2_city": 7.169105379071008,
+  "false_alarms_per_1000_km2_cloud": 4.97231415478615
+ },
+ "before combined tile(0.1)+unet(0.0)+pretrained(0.9)": {
+  "precision": 0.7322580645161291,
+  "recall": 0.801490780698313,
+  "f1": 0.7653118561528376,
+  "tp": 2043,
+  "fp": 747,
+  "fn": 506,
+  "ap": 0.8826354578523671,
+  "threshold": 0.8851589189691629,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.5621181262729125,
+   "small (5-24 px, 0.2-1 ha)": 0.8311306901615272,
+   "large (25+ px, > 1 ha)": 0.8721859114015976
+  },
+  "false_alarms_per_1000_km2": 25.37398054941834,
+  "burned_ground_flagged": 0.0038681602063018778,
+  "false_alarms_per_1000_km2_city": 195.5210557928457,
+  "false_alarms_per_1000_km2_cloud": 0.0
+ },
+ "after combined tile(0.1)+unet(0.2)+pretrained(0.7)": {
+  "precision": 0.8243445692883895,
+  "recall": 0.86347587289133,
+  "f1": 0.843456600881395,
+  "tp": 2201,
+  "fp": 469,
+  "fn": 348,
+  "ap": 0.9251343202826747,
+  "threshold": 0.7959304280206769,
+  "tiles": 72592,
+  "fire_tiles": 2549,
+  "by_size": {
+   "tiny (1-4 fire px, < 0.2 ha)": 0.594704684317719,
+   "small (5-24 px, 0.2-1 ha)": 0.8766519823788547,
+   "large (25+ px, > 1 ha)": 0.9527959331880901
+  },
+  "false_alarms_per_1000_km2": 9.301958162368113,
+  "burned_ground_flagged": 0.0022967201224917398,
+  "false_alarms_per_1000_km2_city": 5.213894821142552,
+  "false_alarms_per_1000_km2_cloud": 3.3148761031907665
+ }
+}

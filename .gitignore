@@ -1,0 +1,34 @@
+# secrets
+firms_key.txt
+.env
+
+# downloaded / generated data (GBs; re-create with the scripts)
+data/
+
+# personal notes and chat history (kept locally, not published)
+HANDOFF.md
+IDEAS.md
+docs/PROJECT_RECORD.md
+docs/FILES.md
+docs/history/
+scripts/export_transcripts.py
+
+# old model versions, backups, score dumps (kept locally)
+outputs/*.npy
+outputs/detections/
+outputs/backup_live/
+outputs/before_archive/
+outputs/before_brightness_fix/
+outputs/before_review/
+outputs/incomplete_history/
+outputs/report/
+outputs/*_distil.pt
+outputs/firenet.pt
+outputs/preview_chip.png
+app/static/wildfire_detector_redesigned.html
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
